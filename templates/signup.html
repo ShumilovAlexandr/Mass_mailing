@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Register a new user{% endblock %}
+{% block content%}
+
+    <div class="content-section">
+        <form action="{{ url_for('signup') }}" method="post" role="form">
+            <div class="h3">
+                Register a new user
+            </div>
+            <!--New user name-->
+            <div>
+                {{ form.username.label }}<br>{{ form.username }}
+            </div>
+            <br>
+            <!--New user email-->
+            <div>
+                {{ form.email.label }}<br>{{ form.email }}
+            </div>
+            <br>
+            <!--New user password-->
+            <div>
+                {{ form.password.label }}<br>{{ form.password }}
+            </div>
+            <br>
+            <!--New user phone number-->
+            <div>
+                {{ form.number_phone.label }}<br>{{ form.number_phone }}
+            </div>
+            <br>
+            <!--New user date of birth-->
+            <div>
+                {{ form.date_of_birth.label }}<br>{{ form.date_of_birth }}
+            </div>
+            <br>
+            <!--Button-->
+            <div class="col">
+                <button type="submit" class="btn btn-outline-primary">Register</button>
+            </div>
+            <br>
+            <!--Links-->
+            <div>
+                <a href="index">Go to send emails</a>
+            </div>
+            <br>
+        </form>
+    </div>
+{% endblock %}

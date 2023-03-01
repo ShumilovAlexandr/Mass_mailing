@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}Sending messages{% endblock %}
+
+
+{% block content%}
+
+    <div class="content-section">
+        <form action="{{ url_for('index') }}" method="post" role="form">
+            <div class="h3">
+                Sending messages
+            </div>
+            <br>
+            
+            <!--Recepient name-->
+            <label for="exampleFormControlTextarea1" class="form-label">Recipient name</label>
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="destination">
+                    <option select value hidden=''>Recipient name</option>
+                    {% for user in users %}
+                        <option value='{{ user.username }}'>{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+                <label for="floatingSelect">Choose name recipient</label>
+            </div>
+            <br>
+
+
+
+
+            <!--Recepient email-->
+            <label for="exampleFormControlTextarea1" class="form-label">Recipient email</label>
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect2" aria-label="Floating label select example" name="email">
+                    <option select value hidden=''>Recipient email</option>
+                    {% for user in users %}
+                        <option value='{{ user.email }}'>{{ user.email }}</option>
+                    {% endfor %}
+                </select>
+                <label for="floatingSelect">Choose email recipient</label>
+            </div>
+            <br>
+
+
+
+
+
+
+
+
+            <!--Message-->
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your message" name="message"></textarea>
+            </div>
+
+            <!--Duration-->
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Duration</label>
+                <div class="input-group">
+                    <span class="input-group-text">Enter a numeric value</span>
+                    <input type="text" aria-label="DUration" class="form-control" name="duration">
+                </div>
+            </div>
+
+            <!--Duration unit the message was sent-->
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Duration unit</label>
+                <select class="form-select" aria-label="Default select example" name="duration_unit">
+                    <option selected>Choose the duration</option>
+                    <option value="1">Minutes</option>
+                    <option value="2">Hours</option>
+                    <option value="3">Days</option>
+                  </select>
+            </div>
+
+            <!--Button-->
+            <br>
+            <div class="col">
+                <button type="submit" class="btn btn-outline-primary" name="action">Send</button>
+            </div>
+            <br>
+            <!--Links-->
+            <div>
+                <a href="/">Back to registration</a>
+            </div>
+            <br>
+        </form>
+            
+    </div>
+    
+
+{% endblock %}
